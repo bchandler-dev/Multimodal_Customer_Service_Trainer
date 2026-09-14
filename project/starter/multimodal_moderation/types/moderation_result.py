@@ -40,4 +40,12 @@ class VideoModerationResult(ModerationResult):
 #   - is_unprofessional: bool to contain a flag for whether unprofessional tone or content was detected
 class AudioModerationResult(ModerationResult):
 
-    ...  # Replace with your implementation
+    transcription: str = Field(description="A string which is the transcription of the audio file")
+    contains_pii: bool = Field(
+        description="Whether the audio contains any personally-identifiable information (PII)"
+        )
+    is_unfriendly: bool = Field(
+        description="Whether the audio is unfriendly in tone or language"
+        )
+    is_unprofessional: bool = Field(description="Whether the audio is unprofessional")
+                                
